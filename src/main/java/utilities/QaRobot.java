@@ -228,6 +228,11 @@ public class QaRobot extends QaExtentReport {
 //		test.log(Status.INFO, Text);
 
 	}
+	
+	public static void PassValue1(String Locator, String value) throws Exception {
+		getWebElement(Locator).clear();
+		getWebElement(Locator).sendKeys(value);
+	}
 
 	public static void PassValueByLocator(String Locator, String value, String text) throws Exception {
 

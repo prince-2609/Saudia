@@ -7,17 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import com.beust.jcommander.Parameters;
-
 
 public class QaBrowser extends QaRobot {
 
 	public static WebDriver driver;
-	public String browser = QaEnvironment.getProperty("browser","chrome");
+	public String browser = QaEnvironment.getProperty("browser", "chrome");
 	public String url = QaEnvironment.getProperty("sut.url");
 
 	public WebDriver launchBrowser() throws Exception {
@@ -32,9 +27,9 @@ public class QaBrowser extends QaRobot {
 			launchChrome();
 		}
 		driver.navigate().to(this.url);
-		driver.manage().deleteAllCookies();
+//		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
+//		driver.manage().deleteAllCookies();
 		return driver;
 	}
 
@@ -55,15 +50,15 @@ public class QaBrowser extends QaRobot {
 
 //	@SuppressWarnings("deprecation")
 	private void launchChrome() throws MalformedURLException {
-		
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\lib\\chromedriverMay24.exe");
+
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\lib\\chromedriverSep24.exe");
 //		DesiredCapabilities dc = DesiredCapabilities.chrome();
 //		dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 		ChromeOptions opt = new ChromeOptions();
-		opt.addArguments("--remote-allow-origins=*"); 
+		opt.addArguments("--remote-allow-origins=*");
 		driver = (WebDriver) new ChromeDriver(opt);
 	}
-	
+
 	private WebDriver luanchFirefox() {
 		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\lib\\geckodriver1.exe");
 //		DesiredCapabilities dc = DesiredCapabilities.firefox();

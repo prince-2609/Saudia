@@ -94,7 +94,7 @@ public class Expense {
 			QaExtentReport.extentScreenshot("Email OTP.");
 			QaRobot.ClickOnElement("expregissuccess");
 			Thread.sleep(2000);
-			
+
 			QaRobot.ClickOnElement("expnextsubmit");
 			Thread.sleep(3000);
 			QaExtentReport.extentScreenshot("Terms and conditions.");
@@ -102,12 +102,10 @@ public class Expense {
 			Thread.sleep(10000);
 			QaExtentReport.extentScreenshot("Successfully Registered.");
 		}
-
 	}
 
 	@AfterTest
 	public static void After_Test() {
 		QaExtentReport.test.getExtent().flush();
 	}
-
 }
