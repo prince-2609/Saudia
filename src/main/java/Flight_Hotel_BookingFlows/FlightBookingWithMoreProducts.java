@@ -213,7 +213,7 @@ public class FlightBookingWithMoreProducts {
 			QaExtentReport.test.log(Status.INFO, "<b><i>Arrival city</i></b>" + " : " + fdesti);
 			Thread.sleep(2000);
 //		QaRobot.selectTextFromDropdown("APolicy", Policy);l
-			Thread.sleep(2000);
+//			Thread.sleep(2000);
 			QaBrowser.driver.findElement(By.xpath("//div[@id='tab1']/div[2]/div[4]/div[1]/span[2]/img")).click();
 			Thread.sleep(2000);
 			selectDateInCalendarRoundTripNew(expDate, month, year, expDate1, month1, year1);

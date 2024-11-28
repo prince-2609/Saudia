@@ -53,13 +53,13 @@ public class TripType_Page {
 
 			QaBrowser.driver
 					.findElement(By.xpath(
-							"//div[@class='mat-mdc-form-field-icon-suffix ng-tns-c1205077789-21 ng-star-inserted']"))
+							"//div[@class='mat-mdc-form-field-icon-suffix ng-tns-c1205077789-35 ng-star-inserted']"))
 					.click();
 			Thread.sleep(3000);
 
 			selectDateInCalendarOneWay(expDate, month, year);
-			WebElement CalContinue = QaBrowser.driver
-					.findElement(By.xpath("(//span[@class='mat-mdc-button-persistent-ripple mdc-button__ripple'])[3]"));
+			WebElement CalContinue = QaBrowser.driver.findElement(By.xpath(
+					"//button[@class='button--primary-small mat-button btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base']"));
 			JavascriptExecutor js2 = (JavascriptExecutor) QaBrowser.driver;
 			js2.executeScript("arguments[0].click()", CalContinue);
 		} else if (TripType.equalsIgnoreCase("RoundTrip")) {
@@ -80,13 +80,13 @@ public class TripType_Page {
 
 			QaBrowser.driver
 					.findElement(By.xpath(
-							"//div[@class='mat-mdc-form-field-icon-suffix ng-tns-c1205077789-21 ng-star-inserted']"))
+							"//div[@class='mat-mdc-form-field-icon-suffix ng-tns-c1205077789-35 ng-star-inserted']"))
 					.click();
 			Thread.sleep(3000);
 
 			selectDateInCalendarRoundTrip(expDate, month, year, expDate1, month1, year1);
 			WebElement CalContinue = QaBrowser.driver.findElement(By.xpath(
-					"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[4]/div[2]/button/span[4]"));
+					"//button[@class='button--primary-small mat-button btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base']"));
 			JavascriptExecutor js2 = (JavascriptExecutor) QaBrowser.driver;
 			js2.executeScript("arguments[0].click()", CalContinue);
 		} else if (TripType.equalsIgnoreCase("MultiCity")) {
@@ -105,14 +105,22 @@ public class TripType_Page {
 			}
 			QaRobot.ClickOnElement("BookAsConfirm");
 		}
+		
 		if (BookAs.equalsIgnoreCase("Employee")) {
-			QaRobot.ClickOnElement("EmpDetails1");
+			switch (TripType) {
+			case "OneWay":
+				QaRobot.ClickOnElement("EmpDetails1");
+				break;
+			case "RoundTrip":
+				QaRobot.ClickOnElement("EmpDetails2");
+				break;
+			}
 			QaRobot.ClickOnElement("SelectEmpDetails");
 			Thread.sleep(3000);
 		}
-		QaRobot.ClickOnElement("PolDetails");
-		QaRobot.ClickOnElement("SelectPolDetails");
-		Thread.sleep(3000);
+//		QaRobot.ClickOnElement("PolDetails");
+//		QaRobot.ClickOnElement("SelectPolDetails");
+//		Thread.sleep(3000);
 
 //			QaRobot.ClickOnElement("AjTravellers");
 ////			QaExtentReport.test.log(Status.INFO, "<b><i>Clicked on Travellers</i></b>");
@@ -130,7 +138,7 @@ public class TripType_Page {
 //			QaRobot.ClickOnElement("AjTravellers");
 //
 //			if (MoreOptions.equalsIgnoreCase("Yes")) {
-////				QaRobot.ClickOnElement("MoreOptionsF");
+////				QaRobot.ClickOnElement("MoreOptionsF");+++++++++
 ////				QaExtentReport.test.log(Status.INFO, "<b><i>Clicked on MoreOptions</i></b>");
 ////				Thread.sleep(2000);
 //

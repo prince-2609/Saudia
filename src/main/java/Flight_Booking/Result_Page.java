@@ -263,7 +263,7 @@ public class Result_Page {
 			Thread.sleep(3000);
 			if (FareTypeR.equalsIgnoreCase("Guest")) {
 				QaBrowser.driver.findElement(By.xpath(
-						"(/html/body/app-root/app-layout/div/app-flight-tab-layout/div/div[4]/app-flight-record/mat-card/div/div[2]/app-flight-cabin-selection/div/div[1]/div[2]/div[2]/div[2]/button)["
+						"(/html/body/app-root/app-layout/div/app-flight-tab-layout/div/div[4]/app-flight-record/mat-card/div/div[2]/app-flight-cabin-selection/div/div[1]/div[2]/div[2]/div[2]/button[1])["
 								+ SFlightR + "]"))
 						.click();
 				Thread.sleep(5000);
