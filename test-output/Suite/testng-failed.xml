@@ -3,12 +3,12 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test name="Test(failed)">
     <classes>
-      <class name="expenseTravog.ExpenseManagementTripSheet">
+      <class name="Flight_Booking.FlightBooking">
         <methods>
-          <include name="Profiling1" invocation-numbers="0"/>
-          <include name="afterMetod"/>
+          <include name="After_Test"/>
+          <include name="flightBooking" invocation-numbers="1"/>
         </methods>
-      </class> <!-- expenseTravog.ExpenseManagementTripSheet -->
+      </class> <!-- Flight_Booking.FlightBooking -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\Ankur.Yadav\git\Travog\ExpenseManagementTripSheet.xml</span>
+                    <span>C:\Users\Shubham.Natkar\git\Saudia\FlightBooking.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -102,10 +102,24 @@
                     <div class="method-list-content failed suite-Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="expenseTravog.ExpenseManagementTripSheet" class="method navigator-link" hash-for-method="Profiling1(Test Case 1, Trip with Flight Category, travog, //v12staging/travog//, shubham.natkar@quadlabs.com, ...)">Profiling1(Test Case 1, Trip with Flight Category, travog, //v12staging/travog//, shubham.natkar@quadlabs.com, ...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="Flight_Booking.FlightBooking" class="method navigator-link" hash-for-method="flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...)">flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Flight_Booking.FlightBooking" class="method navigator-link" hash-for-method="flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...)">flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -120,23 +134,28 @@
           <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">expenseTravog.ExpenseManagementTripSheet</span>
+              <span class="class-name">Flight_Booking.FlightBooking</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Profiling1(Test Case 1, Trip with Flight Category, travog, //v12staging/travog//, shubham.natkar@quadlabs.com, ...)">
-                  </a> <!-- Profiling1(Test Case 1, Trip with Flight Category, travog, //v12staging/travog//, shubham.natkar@quadlabs.com, ...) -->
-                  <span class="method-name">Profiling1</span>
-                  <span class="parameters">(Test Case 1, Trip with Flight Category, travog, //v12staging/travog//, shubham.natkar@quadlabs.com, #123Quadlabs, Dubai Tour 15, dxb, Dubai,United Arab Emirates - (DXB ), 23-Jun-2024, 26-Jun-2024, Business, QA CC, INR, INR, Test Project Name travog, 500, 1000, Test, Flight, Air India, 23-Jun-2024, 26-Jun-2024, INR, 1500, QA Branch ( ), Adjusted from Per Diem Account, Test Sample, No, Car, del, DelhiIndia, bom, BombayMaharashtra, India, 23-Jun-2024, 24-Jun-2024)</span>
-                  <div class="stack-trace">org.openqa.selenium.NoAlertPresentException: no such alert
-  (Session info: chrome=125.0.6422.142)
+                  <a name="flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...)">
+                  </a> <!-- flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...) -->
+                  <span class="method-name">flightBooking</span>
+                  <span class="parameters">(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/, Anant Kumar, Administrator, anant.kumar@quadlabs.com, Qlindia@123, RoundTrip, Domestic, jed, Jeddah, Saudi Arabia
+King Abdulaziz International, dxb, Dubai, United Arab Emirates
+Dubai International, 18-February-2025, 20-February-2025, Employee, Yes, Guest, 5, Flex, Semi Flex, Guest, 2, Flex, Semi Flex, No, Yes, RoundTrip, Domestic, dxb, Dubai, United Arab Emirates
+Dubai International, jed, Jeddah, Saudi Arabia
+King Abdulaziz International, Yes, 24-February-2025, 27-February-2025, No, 1, 1, 1, No, Economy, SelectExtras, 1, Seat,Baggage,FastTrack,MeetAndGreet, 16, UseDifferentCard, 340000000001098, Test Test, 1234)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//mat-dialog-container[@id=&apos;mat-mdc-dialog-1&apos;]/div/div/app-seat-selector-popup/div/div/div/div/mat-dialog-actions/div[2]/button[2]&quot;}
+  (Session info: chrome=132.0.6834.160)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
-System info: host: &apos;ANKUR&apos;, ip: &apos;192.168.111.156&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+System info: host: &apos;SHUBHAM&apos;, ip: &apos;192.168.111.141&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [8e1c545ecf0337b17b74c25190593941, getAlertText {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 125.0.6422.142, chrome: {chromedriverVersion: 125.0.6422.76 (67dcf7562b8f..., userDataDir: C:\Users\ANKUR~1.YAD\AppDat...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52575}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52575/devtoo..., se:cdpVersion: 125.0.6422.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 8e1c545ecf0337b17b74c25190593941
+Command: [ba228cb10d3007b08445250777e53f2b, findElement {using=xpath, value=//mat-dialog-container[@id=&apos;mat-mdc-dialog-1&apos;]/div/div/app-seat-selector-popup/div/div/div/div/mat-dialog-actions/div[2]/button[2]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.83 (03d59cf5ecf1..., userDataDir: C:\Users\SHUBHA~1.NAT\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53154}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53154/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ba228cb10d3007b08445250777e53f2b
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
@@ -144,21 +163,45 @@ Session ID: 8e1c545ecf0337b17b74c25190593941
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:626)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.alert(RemoteWebDriver.java:1119)
-	at expenseTravog.ExpenseManagementTripSheet.expense1(ExpenseManagementTripSheet.java:593)
-	at expenseTravog.ExpenseManagementTripSheet.Profiling1(ExpenseManagementTripSheet.java:110)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:385)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:377)
+	at utilities.QaRobot.getLocator(QaRobot.java:72)
+	at utilities.QaRobot.getWebElement(QaRobot.java:196)
+	at utilities.QaRobot.ClickOnElement(QaRobot.java:217)
+	at Flight_Booking.Extra_Page.flightExtrasPage(Extra_Page.java:32)
+	at Flight_Booking.FlightBooking.flightBooking(FlightBooking.java:63)
 ... Removed 30 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Flight_Booking.FlightBooking</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...)">
+                  </a> <!-- flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...) -->
+                  <span class="method-name">flightBooking</span>
+                  <span class="parameters">(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/, Anant Kumar, Administrator, anant.kumar@quadlabs.com, Qlindia@123, OneWay, Domestic, jed, Jeddah, Saudi Arabia
+King Abdulaziz International, dxb, Dubai, United Arab Emirates
+Dubai International, 18-February-2025, 20-February-2025, Employee, Yes, Guest, 5, Flex, Semi Flex, Guest, 2, Flex, Semi Flex, No, Yes, RoundTrip, Domestic, dxb, Dubai, United Arab Emirates
+Dubai International, jed, Jeddah, Saudi Arabia
+King Abdulaziz International, Yes, 24-February-2025, 27-February-2025, No, 1, 1, 1, No, Economy, SelectExtras, 1, Seat,Baggage,FastTrack,MeetAndGreet, 15, UseDifferentCard, 340000000001098, Test Test, 1234)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Ankur.Yadav\git\Travog\ExpenseManagementTripSheet.xml</span>
+            <span class="header-content">C:\Users\Shubham.Natkar\git\Saudia\FlightBooking.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -167,7 +210,7 @@ Session ID: 8e1c545ecf0337b17b74c25190593941
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;expenseTravog.ExpenseManagementTripSheet&quot;/&gt;
+      &lt;class name=&quot;Flight_Booking.FlightBooking&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -207,16 +250,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Profiling1')
-data.setCell(0, 2, 'expenseTravog.ExpenseManagementTripSheet')
-data.setCell(0, 3, 110264);
+data.setCell(0, 1, 'flightBooking')
+data.setCell(0, 2, 'Flight_Booking.FlightBooking')
+data.setCell(0, 3, 208200);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'flightBooking')
+data.setCell(1, 2, 'Flight_Booking.FlightBooking')
+data.setCell(1, 3, 193690);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 6 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -242,17 +289,21 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">expenseTravog.ExpenseManagementTripSheet</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Flight_Booking.FlightBooking</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">Profiling1(Test Case 1, Trip with Flight Category, travog, //v12staging/travog//, shubham.natkar@quadlabs.com, ...)</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-name">flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...)</span>
+                <span class="method-start">208657 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMetod</span>
-                <span class="method-start">110504 ms</span>
-              </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">After_Test</span>
+                <span class="method-start">402697 ms</span>
+              </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

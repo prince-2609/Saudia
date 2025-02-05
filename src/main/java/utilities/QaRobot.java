@@ -1,6 +1,7 @@
 package utilities;
 
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 
 import java.io.File;
 import java.io.IOException;

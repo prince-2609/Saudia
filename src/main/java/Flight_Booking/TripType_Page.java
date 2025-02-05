@@ -21,7 +21,7 @@ public class TripType_Page {
 
 	public static void flightTriptype(String TripType, String OriginCityCode, String OriginLocation,
 			String DestinationCityCode, String DestinationLocation, String DepartureDate, String ReturnDate,
-			String BookAs
+			String BookAs, String PromoCode
 //			String adult, String child, String infant, String MoreOptions, String Currency, String Class,
 //			String PANumber, String PreferredAirlineSelect, String ShowDirectFlight, String MyDatesAreFlexible
 	) throws Exception {
@@ -39,7 +39,6 @@ public class TripType_Page {
 //			QaExtentReport.test.log(Status.INFO, "<b><i>Clicked on submit</i></b>");
 
 			TestBase.listofautosuggestion(By.xpath("//mat-option[contains(@id,'mat-option')]/span/div/div[1]"),
-					// mat-option[contains(@id,'mat-option')]/span/div/div[1]
 					OriginCityCode, OriginLocation, By.xpath("//input[@id='fromLocationControl']"));
 			QaExtentReport.test.log(Status.INFO,
 					"<b><i>Departure city : </i></b>" + OriginCityCode + " - " + OriginLocation);
@@ -51,12 +50,10 @@ public class TripType_Page {
 					"<b><i>Arrival city : </i></b>" + DestinationCityCode + " - " + DestinationLocation);
 			Thread.sleep(2000);
 
-			QaBrowser.driver
-					.findElement(By.xpath(
-							"//div[@class='mat-mdc-form-field-icon-suffix ng-tns-c1205077789-35 ng-star-inserted']"))
-					.click();
+			QaBrowser.driver.findElement(By.xpath("//input[@id='mat-input-4']")).click();
+			Thread.sleep(2000);
+			QaBrowser.driver.findElement(By.xpath("//input[@id='mat-input-4']")).click();
 			Thread.sleep(3000);
-
 			selectDateInCalendarOneWay(expDate, month, year);
 			WebElement CalContinue = QaBrowser.driver.findElement(By.xpath(
 					"//button[@class='button--primary-small mat-button btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base']"));
@@ -78,10 +75,9 @@ public class TripType_Page {
 					"<b><i>Arrival city : </i></b>" + DestinationCityCode + " - " + DestinationLocation);
 			Thread.sleep(2000);
 
-			QaBrowser.driver
-					.findElement(By.xpath(
-							"//div[@class='mat-mdc-form-field-icon-suffix ng-tns-c1205077789-35 ng-star-inserted']"))
-					.click();
+			QaBrowser.driver.findElement(By.xpath("//input[@id='mat-input-4']")).click();
+			Thread.sleep(2000);
+			QaBrowser.driver.findElement(By.xpath("//input[@id='mat-input-4']")).click();
 			Thread.sleep(3000);
 
 			selectDateInCalendarRoundTrip(expDate, month, year, expDate1, month1, year1);
@@ -105,7 +101,7 @@ public class TripType_Page {
 			}
 			QaRobot.ClickOnElement("BookAsConfirm");
 		}
-		
+
 		if (BookAs.equalsIgnoreCase("Employee")) {
 			switch (TripType) {
 			case "OneWay":
@@ -118,6 +114,12 @@ public class TripType_Page {
 			QaRobot.ClickOnElement("SelectEmpDetails");
 			Thread.sleep(3000);
 		}
+
+		if (PromoCode.equalsIgnoreCase("Yes")) {
+			QaRobot.ClickOnElement("AddAPromoCode");
+			QaRobot.PassValue("PromoCode", "FLY12345");
+		}
+
 //		QaRobot.ClickOnElement("PolDetails");
 //		QaRobot.ClickOnElement("SelectPolDetails");
 //		Thread.sleep(3000);
@@ -183,7 +185,8 @@ public class TripType_Page {
 		}
 	}
 
-	public static void selectDateInCalendarOneWay(String Day, String Month, String Year) throws ParseException {
+	public static void selectDateInCalendarOneWay(String Day, String Month, String Year)
+			throws ParseException, InterruptedException {
 		Date date = new Date();
 		DateFormat d = new SimpleDateFormat("dd-MM-yyyy");
 		String NewDate = d.format(date);
@@ -191,29 +194,29 @@ public class TripType_Page {
 		System.out.println(date1);
 
 		String currentMonthNumber = "00";
-		if (Month.equalsIgnoreCase("Jan")) {
+		if (Month.equalsIgnoreCase("January")) {
 			currentMonthNumber = "01";
-		} else if (Month.equalsIgnoreCase("Feb")) {
+		} else if (Month.equalsIgnoreCase("February")) {
 			currentMonthNumber = "02";
-		} else if (Month.equalsIgnoreCase("Mar")) {
+		} else if (Month.equalsIgnoreCase("March")) {
 			currentMonthNumber = "03";
-		} else if (Month.equalsIgnoreCase("Apr")) {
+		} else if (Month.equalsIgnoreCase("April")) {
 			currentMonthNumber = "04";
 		} else if (Month.equalsIgnoreCase("May")) {
 			currentMonthNumber = "05";
-		} else if (Month.equalsIgnoreCase("Jun")) {
+		} else if (Month.equalsIgnoreCase("June")) {
 			currentMonthNumber = "06";
-		} else if (Month.equalsIgnoreCase("Jul")) {
+		} else if (Month.equalsIgnoreCase("July")) {
 			currentMonthNumber = "07";
-		} else if (Month.equalsIgnoreCase("Aug")) {
+		} else if (Month.equalsIgnoreCase("August")) {
 			currentMonthNumber = "08";
-		} else if (Month.equalsIgnoreCase("Sep")) {
+		} else if (Month.equalsIgnoreCase("September")) {
 			currentMonthNumber = "09";
-		} else if (Month.equalsIgnoreCase("Oct")) {
+		} else if (Month.equalsIgnoreCase("October")) {
 			currentMonthNumber = "10";
-		} else if (Month.equalsIgnoreCase("Nov")) {
+		} else if (Month.equalsIgnoreCase("November")) {
 			currentMonthNumber = "11";
-		} else if (Month.equalsIgnoreCase("Dec")) {
+		} else if (Month.equalsIgnoreCase("December")) {
 			currentMonthNumber = "12";
 		}
 
@@ -236,6 +239,7 @@ public class TripType_Page {
 					"<b><i>Invalid date provided  </i></b>" + Day + "-" + Month + "-" + Year);
 			throw new ExceptionClass("Invalid date provided " + Day + "/" + Month + "/" + Year);
 		}
+		Thread.sleep(5000);
 		String monthYear = QaBrowser.driver.findElement(By.xpath("//span[@class='month']")).getText();
 		String month = monthYear.split(" ")[0];
 		String year = monthYear.split(" ")[1];
@@ -259,7 +263,7 @@ public class TripType_Page {
 				year = monthYear.split(" ")[1];
 			}
 			List<WebElement> allDates = QaBrowser.driver.findElements(By.xpath(
-					"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-one-way-calendar/div/div/div[3]/table/tbody/tr/td"));
+					"//mat-tab-body[@id='mat-tab-content-0-0']/div/div/app-booking-trip/form/div/section/div/div[2]/div[1]/app-one-way-calendar/div/div/div[3]/table/tbody/tr/td/div/span[2]"));
 			for (WebElement ele : allDates) {
 				String dt = ele.getText();
 				if (dt.equalsIgnoreCase(Day)) {
@@ -279,58 +283,58 @@ public class TripType_Page {
 		System.out.println(date1);
 
 		String currentMonthNumber = "00";
-		if (Month.equalsIgnoreCase("Jan")) {
+		if (Month.equalsIgnoreCase("January")) {
 			currentMonthNumber = "01";
-		} else if (Month.equalsIgnoreCase("Feb")) {
+		} else if (Month.equalsIgnoreCase("February")) {
 			currentMonthNumber = "02";
-		} else if (Month.equalsIgnoreCase("Mar")) {
+		} else if (Month.equalsIgnoreCase("March")) {
 			currentMonthNumber = "03";
-		} else if (Month.equalsIgnoreCase("Apr")) {
+		} else if (Month.equalsIgnoreCase("April")) {
 			currentMonthNumber = "04";
 		} else if (Month.equalsIgnoreCase("May")) {
 			currentMonthNumber = "05";
-		} else if (Month.equalsIgnoreCase("Jun")) {
+		} else if (Month.equalsIgnoreCase("June")) {
 			currentMonthNumber = "06";
-		} else if (Month.equalsIgnoreCase("Jul")) {
+		} else if (Month.equalsIgnoreCase("July")) {
 			currentMonthNumber = "07";
-		} else if (Month.equalsIgnoreCase("Aug")) {
+		} else if (Month.equalsIgnoreCase("August")) {
 			currentMonthNumber = "08";
-		} else if (Month.equalsIgnoreCase("Sep")) {
+		} else if (Month.equalsIgnoreCase("September")) {
 			currentMonthNumber = "09";
-		} else if (Month.equalsIgnoreCase("Oct")) {
+		} else if (Month.equalsIgnoreCase("October")) {
 			currentMonthNumber = "10";
-		} else if (Month.equalsIgnoreCase("Nov")) {
+		} else if (Month.equalsIgnoreCase("November")) {
 			currentMonthNumber = "11";
-		} else if (Month.equalsIgnoreCase("Dec")) {
+		} else if (Month.equalsIgnoreCase("December")) {
 			currentMonthNumber = "12";
 		}
 		Date date2 = d.parse(Day + "-" + Integer.parseInt(currentMonthNumber) + "-" + Year);
 		System.out.println(date2);
 
 		String currentMonthNumber1 = "00";
-		if (Month.equalsIgnoreCase("Jan")) {
+		if (Month.equalsIgnoreCase("January")) {
 			currentMonthNumber1 = "01";
-		} else if (Month1.equalsIgnoreCase("Feb")) {
+		} else if (Month.equalsIgnoreCase("February")) {
 			currentMonthNumber1 = "02";
-		} else if (Month1.equalsIgnoreCase("Mar")) {
+		} else if (Month.equalsIgnoreCase("March")) {
 			currentMonthNumber1 = "03";
-		} else if (Month1.equalsIgnoreCase("Apr")) {
+		} else if (Month.equalsIgnoreCase("April")) {
 			currentMonthNumber1 = "04";
-		} else if (Month1.equalsIgnoreCase("May")) {
+		} else if (Month.equalsIgnoreCase("May")) {
 			currentMonthNumber1 = "05";
-		} else if (Month1.equalsIgnoreCase("Jun")) {
+		} else if (Month.equalsIgnoreCase("June")) {
 			currentMonthNumber1 = "06";
-		} else if (Month1.equalsIgnoreCase("Jul")) {
+		} else if (Month.equalsIgnoreCase("July")) {
 			currentMonthNumber1 = "07";
-		} else if (Month1.equalsIgnoreCase("Aug")) {
+		} else if (Month.equalsIgnoreCase("August")) {
 			currentMonthNumber1 = "08";
-		} else if (Month1.equalsIgnoreCase("Sep")) {
+		} else if (Month.equalsIgnoreCase("September")) {
 			currentMonthNumber1 = "09";
-		} else if (Month1.equalsIgnoreCase("Oct")) {
+		} else if (Month.equalsIgnoreCase("October")) {
 			currentMonthNumber1 = "10";
-		} else if (Month1.equalsIgnoreCase("Nov")) {
+		} else if (Month.equalsIgnoreCase("November")) {
 			currentMonthNumber1 = "11";
-		} else if (Month1.equalsIgnoreCase("Dec")) {
+		} else if (Month.equalsIgnoreCase("December")) {
 			currentMonthNumber1 = "12";
 		}
 
@@ -369,9 +373,8 @@ public class TripType_Page {
 		}
 
 		String monthYear = QaBrowser.driver.findElement(By.xpath(
-				"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/span"))
+				"//mat-tab-body[@id='mat-tab-content-0-0']/div/div/app-booking-trip/form/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/span[1]"))
 				.getText();
-
 		String month = monthYear.split(" ")[0];
 		String year = monthYear.split(" ")[1];
 
@@ -382,18 +385,16 @@ public class TripType_Page {
 //			throw new B2cExceptionClass("Invalid date provided " + Day + "-" + Month + "-" + Year);
 		} else {
 			while (!(month.equals(Month) && year.equals(Year))) {
-				QaBrowser.driver.findElement(By.xpath(
-						"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/button[2]/span[4]"))
-						.click();
+				QaBrowser.driver.findElement(By.xpath("//button[contains(@class,'calendar-available next')]")).click();
 				monthYear = QaBrowser.driver.findElement(By.xpath(
-						"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/span"))
+						"//mat-tab-body[@id='mat-tab-content-0-0']/div/div/app-booking-trip/form/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/span[1]"))
 						.getText();
 				month = monthYear.split(" ")[0];
 				year = monthYear.split(" ")[1];
 			}
 
 			List<WebElement> allDates = QaBrowser.driver.findElements(By.xpath(
-					"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[3]/table[1]/tbody/tr/td/div/span[2]"));
+					"//mat-tab-body[@id='mat-tab-content-0-0']/div/div/app-booking-trip/form/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[3]/table[1]/tbody/tr/td/div/span[2]"));
 			for (WebElement ele : allDates) {
 				String dt = ele.getText();
 				if (dt.equalsIgnoreCase(Day)) {
@@ -404,7 +405,7 @@ public class TripType_Page {
 			Thread.sleep(2000);
 
 			String monthYear1 = QaBrowser.driver.findElement(By.xpath(
-					"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/span"))
+					"//mat-tab-body[@id='mat-tab-content-0-0']/div/div/app-booking-trip/form/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/span[1]"))
 					.getText();
 			Thread.sleep(3000);
 			String month1 = monthYear1.split(" ")[0];
@@ -416,17 +417,16 @@ public class TripType_Page {
 						"<b><i>Invalid Return date provided  </i></b>" + Day1 + "-" + Month1 + "-" + Year1);
 			} else {
 				while (!(month1.equals(Month1) && year1.equals(Year1))) {
-					QaBrowser.driver.findElement(By.xpath(
-							"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/button[2]/span[4]"))
+					QaBrowser.driver.findElement(By.xpath("//button[contains(@class,'calendar-available next')]"))
 							.click();
 					monthYear1 = QaBrowser.driver.findElement(By.xpath(
-							"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/span"))
+							"//mat-tab-body[@id='mat-tab-content-0-0']/div/div/app-booking-trip/form/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[2]/span[1]"))
 							.getText();
 					month1 = monthYear1.split(" ")[0];
 					year1 = monthYear1.split(" ")[1];
 				}
 				List<WebElement> allDates1 = QaBrowser.driver.findElements(By.xpath(
-						"/html/body/app-root/app-layout/div/app-dasboard-tab-layout/div/div/div/app-booking-tab-layout/div/form/div/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[3]/table[1]/tbody/tr/td/div/span[2]"));
+						"//mat-tab-body[@id='mat-tab-content-0-0']/div/div/app-booking-trip/form/div/section/div/div[2]/div[1]/app-round-trip-calendar/div/div/div[3]/table[1]/tbody/tr/td/div/span[2]"));
 				for (WebElement ele1 : allDates1) {
 					String dt1 = ele1.getText();
 					if (dt1.equalsIgnoreCase(Day1)) {
