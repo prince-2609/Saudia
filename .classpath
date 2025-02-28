@@ -35,6 +35,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/eclipse-java-2021-12-R-win32-x86_64/selenium-server-4.1.4.jar" sourcepath="D:/eclipse-java-2021-12-R-win32-x86_64/selenium-server-4.1.4.jar"/>
+	<classpathentry kind="lib" path="D:/selenium-server-4.1.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

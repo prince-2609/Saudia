@@ -50,7 +50,6 @@ public class QaRobot extends QaExtentReport {
 				QaBrowser.driver.switchTo().window(childWindow);
 		}
 	}
-
 	public static void alertAccept() {
 		QaBrowser.driver.switchTo().alert().accept();
 	}
@@ -479,5 +478,25 @@ public class QaRobot extends QaExtentReport {
 		}
 
 	}
+	public static void clickOnDisableElement(String meet) throws Throwable {
+		WebElement element1=getWebElement(meet);
+		JavascriptExecutor js= (JavascriptExecutor)QaBrowser.driver;
+		js.executeScript("arguments[0].click()", element1);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

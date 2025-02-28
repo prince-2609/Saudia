@@ -9,7 +9,7 @@ public class QaRepositery {
 	public Properties init() throws IOException {
 		Properties obj = new Properties();
 		String propsDir = System.getProperty("user.dir") + "\\repository";
-		String[] files = { "RegisterCorporate", "Flight","FlightBooking"};
+		String[] files = { "RegisterCorporate", "Flight", "FlightBooking", "FlightBookingForEmployees" };
 		String propsFileSuffix = ".properties";
 
 		for (String file : files) {

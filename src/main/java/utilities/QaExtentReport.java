@@ -28,7 +28,7 @@ public class QaExtentReport {
 
 		report = new ExtentReports();
 
-		File file = new File("C:\\Users\\Shubham.Natkar\\git\\Saudia\\Reports\\" + NewDate + " report" + ".html");
+		File file = new File("C:\\Users\\Balkrishna.Sharma\\Desktop\\saudiaproject\\Saudia\\Reports\\" + NewDate + " report" + ".html");
 		ExtentSparkReporter sparkreporter = new ExtentSparkReporter(file);
 		ExtentSparkReporterConfig config = sparkreporter.config();
 		config.setTheme(Theme.STANDARD);
@@ -59,7 +59,8 @@ public class QaExtentReport {
 
 		TakesScreenshot ts = (TakesScreenshot) QaBrowser.driver;
 		File Source = ts.getScreenshotAs(OutputType.FILE);
-		File Dest = new File("C:\\Users\\Shubham.Natkar\\git\\Saudia\\Screenshot\\" + NewDate + " " + text + ".jpg");
+		File Dest = new File("C:\\Users\\Balkrishna.Sharma\\Desktop\\saudiaproject\\Saudia\\Screenshot\\" + NewDate + " " + text + ".jpg");
+		                      
 		FileUtils.copyFile(Source, Dest);
 		return Dest.getAbsolutePath();
 	}

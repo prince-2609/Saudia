@@ -1,7 +1,7 @@
 package Flight_Booking;
 
 public class ExceptionClass  extends RuntimeException {
-	ExceptionClass(String msg) {
+	public ExceptionClass(String msg) {
 		super(msg);
 	}
 
