@@ -1,6 +1,7 @@
 package Flight_Booking;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import utilities.QaBrowser;
@@ -9,7 +10,8 @@ import utilities.QaRobot;
 
 public class Payment_Page {
 
-	public static void flightPaymentPage(String PaymentMethod,String CardNumber,String NameOfCardHolder,String CVV) throws Exception {
+	public static void flightPaymentPage(String PaymentMethod, String CardNumber, String NameOfCardHolder, String CVV)
+			throws Exception {
 		Thread.sleep(15000);
 		QaExtentReport.extentScreenshot("Payment page");
 //		QaRobot.scrollPage(3000);
@@ -17,7 +19,7 @@ public class Payment_Page {
 //		QaExtentReport.extentScreenshot("Payment Method");
 
 		if (PaymentMethod.equalsIgnoreCase("SavedCards")) {
-			
+
 		} else if (PaymentMethod.equalsIgnoreCase("UseDifferentCard")) {
 			QaRobot.ClickOnElement("UseDifferentCard");
 			QaRobot.PassValue("CardNumber", CardNumber);
@@ -32,12 +34,15 @@ public class Payment_Page {
 
 		}
 		QaRobot.ClickOnElement("TearmCheck");
-		QaRobot.ClickOnElement("PayNow");
-		Thread.sleep(15000);
+		WebElement PayNow = QaBrowser.driver.findElement(By.xpath("//span[text()='Pay Now']"));
+		JavascriptExecutor js3 = (JavascriptExecutor) QaBrowser.driver;
+		js3.executeScript("arguments[0].click()", PayNow);
+//		QaRobot.ClickOnElement("PayNow");
+		Thread.sleep(35000);
 		WebElement OTP = QaBrowser.driver.findElement(By.xpath("//iframe[@id='Cardinal-CCA-IFrame']"));
 		QaBrowser.driver.switchTo().frame(OTP);
 		QaRobot.PassValue("OPT", "1234");
 		QaRobot.ClickOnElement("Submit");
-		Thread.sleep(20000);
+		Thread.sleep(30000);
 	}
 }

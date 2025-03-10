@@ -229,7 +229,7 @@ public class QaRobot extends QaExtentReport {
 //		test.log(Status.INFO, Text);
 
 	}
-	
+
 	public static void PassValue1(String Locator, String value) throws Exception {
 		getWebElement(Locator).clear();
 		getWebElement(Locator).sendKeys(value);
@@ -480,4 +480,81 @@ public class QaRobot extends QaExtentReport {
 
 	}
 
+	public static void addPassenger(String AQty, String CQty, String IQty, String ISQty) {
+		int pAS = Integer.parseInt(AQty);
+		for (int k = 1; k < pAS; k++) {
+			QaBrowser.driver
+					.findElement(By.xpath("(//div[@class='passenger-details']/div/div[2]/button[2]/span[4])[1]"))
+					.click();
+		}
+		int pAS1 = Integer.parseInt(CQty);
+		for (int k = 1; k <= pAS1; k++) {
+			QaBrowser.driver
+					.findElement(By.xpath("(//div[@class='passenger-details']/div/div[2]/button[2]/span[4])[2]"))
+					.click();
+		}
+		int pAS2 = Integer.parseInt(IQty);
+		for (int k = 1; k <= pAS2; k++) {
+			QaBrowser.driver
+					.findElement(By.xpath("(//div[@class='passenger-details']/div/div[2]/button[2]/span[4])[3]"))
+					.click();
+		}
+		int pAS3 = Integer.parseInt(ISQty);
+		for (int k = 1; k <= pAS3; k++) {
+			QaBrowser.driver
+					.findElement(By.xpath("(//div[@class='passenger-details']/div/div[2]/button[2]/span[4])[4]"))
+					.click();
+		}
+	}
+
+	public static void addDependent(String AQty, String CQty, String IQty, String ISQty) {
+//		int pAS = Integer.parseInt(AQty)+Integer.parseInt(CQty)+Integer.parseInt(IQty)+Integer.parseInt(ISQty);
+		int pAS = Integer.parseInt(AQty);
+		for (int k = 1; k <= pAS; k++) {
+			QaBrowser.driver
+					.findElement(By
+							.xpath("(//div[contains(@class,'mat-mdc-form-field-icon-suffix ng-tns-c1205077789')])[8]"))
+					.click();
+			QaBrowser.driver
+					.findElement(By.xpath(
+							"(//mat-option[contains(@class,'mat-mdc-option mdc-list-item ng-star-inserted')]/span)[1]"))
+					.click();
+
+			if (k > 1) {
+				QaBrowser.driver.findElement(By.xpath(
+						"(//span[text()='Adult'])[" + k + "]/../../..//mat-checkbox[contains(@id,'mat-mdc-checkbox')]"))
+						.click();
+				QaBrowser.driver
+						.findElement(By.xpath("(//span[text()='Adult'])[" + k + "]/../../../following-sibling::div"))
+						.click();
+				QaBrowser.driver.findElement(By
+						.xpath("(//mat-option[contains(@class,'mat-mdc-option mdc-list-item ng-star-inserted')]/span)["
+								+ k + "]"))
+						.click();
+			}
+		}
+		int pAS1 = Integer.parseInt(CQty);
+		for (int k = 1; k <= pAS1; k++) {
+			QaBrowser.driver.findElement(By.xpath("(//div[@class='passenger-list' and contains(.,'Child')])[" + k
+					+ "]/div/div/span[1]/../../..//mat-checkbox[contains(@id,'mat-mdc-checkbox')]")).click();
+			QaBrowser.driver.findElement(By.xpath(
+					"(//div[@class='passenger-list' and contains(.,'Child')])[" + k + "]/following-sibling::div"))
+					.click();
+			QaBrowser.driver.findElement(By.xpath(
+					"(//mat-option[contains(@class,'mat-mdc-option mdc-list-item ng-star-inserted')]/span)[" + k + "]"))
+					.click();
+		}
+		int pAS2 = Integer.parseInt(IQty) + Integer.parseInt(ISQty);
+		for (int k = 1; k <= pAS2; k++) {
+			QaBrowser.driver.findElement(By.xpath(
+					"(//span[text()='Infant'])[" + k + "]/../../..//mat-checkbox[contains(@id,'mat-mdc-checkbox')]"))
+					.click();
+			QaBrowser.driver
+					.findElement(By.xpath("(//span[text()='Infant'])[" + k + "]/../../../following-sibling::div"))
+					.click();
+			QaBrowser.driver.findElement(By.xpath(
+					"(//mat-option[contains(@class,'mat-mdc-option mdc-list-item ng-star-inserted')]/span)[" + k + "]"))
+					.click();
+		}
+	}
 }

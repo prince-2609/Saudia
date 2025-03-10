@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="Flight_Booking.FlightBooking" class="method navigator-link" hash-for-method="flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...)">flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -116,7 +102,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="Flight_Booking.FlightBooking" class="method navigator-link" hash-for-method="flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...)">flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="Flight_Booking.FlightBooking" class="method navigator-link" hash-for-method="flightBooking(Test on Flight 1, Verify one way(Dependent) flight booking flow, SaudiaSBT, //dev.saudia.quadlabs.ne...)">flightBooking(Test on Flight 1, Verify one way(Dependent) flight booking flow, SaudiaSBT, //dev.saudia.quadlabs.ne...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -131,53 +117,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">Flight_Booking.FlightBooking</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...)">
-                  </a> <!-- flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...) -->
-                  <span class="method-name">flightBooking</span>
-                  <span class="parameters">(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/, Anant Kumar, Administrator, anant.kumar@quadlabs.com, Qlindia@123, RoundTrip, Domestic, jed, Jeddah, Saudi Arabia
-King Abdulaziz International, dxb, Dubai, United Arab Emirates
-Dubai International, 18-February-2025, 20-February-2025, Employee, Yes, Guest, 5, Flex, Semi Flex, Guest, 2, Flex, Semi Flex, No, Yes, RoundTrip, Domestic, dxb, Dubai, United Arab Emirates
-Dubai International, jed, Jeddah, Saudi Arabia
-King Abdulaziz International, Yes, 24-February-2025, 27-February-2025, No, 1, 1, 1, No, Economy, SelectExtras, 1, Seat,Baggage,FastTrack,MeetAndGreet, 16, UseDifferentCard, 340000000001098, Test Test, 1234)</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//mat-dialog-container[@id=&apos;mat-mdc-dialog-1&apos;]/div/div/app-seat-selector-popup/div/div/div/div/mat-dialog-actions/div[2]/button[2]&quot;}
-  (Session info: chrome=132.0.6834.160)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
-System info: host: &apos;SHUBHAM&apos;, ip: &apos;192.168.111.141&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ba228cb10d3007b08445250777e53f2b, findElement {using=xpath, value=//mat-dialog-container[@id=&apos;mat-mdc-dialog-1&apos;]/div/div/app-seat-selector-popup/div/div/div/div/mat-dialog-actions/div[2]/button[2]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.83 (03d59cf5ecf1..., userDataDir: C:\Users\SHUBHA~1.NAT\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53154}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53154/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ba228cb10d3007b08445250777e53f2b
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:385)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:377)
-	at utilities.QaRobot.getLocator(QaRobot.java:72)
-	at utilities.QaRobot.getWebElement(QaRobot.java:196)
-	at utilities.QaRobot.ClickOnElement(QaRobot.java:217)
-	at Flight_Booking.Extra_Page.flightExtrasPage(Extra_Page.java:32)
-	at Flight_Booking.FlightBooking.flightBooking(FlightBooking.java:63)
-... Removed 30 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -186,14 +125,14 @@ Session ID: ba228cb10d3007b08445250777e53f2b
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...)">
-                  </a> <!-- flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...) -->
+                  <a name="flightBooking(Test on Flight 1, Verify one way(Dependent) flight booking flow, SaudiaSBT, //dev.saudia.quadlabs.ne...)">
+                  </a> <!-- flightBooking(Test on Flight 1, Verify one way(Dependent) flight booking flow, SaudiaSBT, //dev.saudia.quadlabs.ne...) -->
                   <span class="method-name">flightBooking</span>
-                  <span class="parameters">(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/, Anant Kumar, Administrator, anant.kumar@quadlabs.com, Qlindia@123, OneWay, Domestic, jed, Jeddah, Saudi Arabia
+                  <span class="parameters">(Test on Flight 1, Verify one way(Dependent) flight booking flow, SaudiaSBT, //dev.saudia.quadlabs.net/, Anant Kumar, Administrator, akshay.kumar@quadlabs.com, Qlindia@1234, OneWay, Domestic, jed, Jeddah, Saudi Arabia
 King Abdulaziz International, dxb, Dubai, United Arab Emirates
-Dubai International, 18-February-2025, 20-February-2025, Employee, Yes, Guest, 5, Flex, Semi Flex, Guest, 2, Flex, Semi Flex, No, Yes, RoundTrip, Domestic, dxb, Dubai, United Arab Emirates
+Dubai International, 24-March-2025, 22-April-2025, Employee, FamilyT, 2, 1, 1, 1, Yes, Guest, 5, Flex, Semi Flex, Guest, 2, Flex, Semi Flex, No, Yes, RoundTrip, Domestic, dxb, Dubai, United Arab Emirates
 Dubai International, jed, Jeddah, Saudi Arabia
-King Abdulaziz International, Yes, 24-February-2025, 27-February-2025, No, 1, 1, 1, No, Economy, SelectExtras, 1, Seat,Baggage,FastTrack,MeetAndGreet, 15, UseDifferentCard, 340000000001098, Test Test, 1234)</span>
+King Abdulaziz International, Yes, 24-February-2025, 27-February-2025, No, 1, 1, 1, No, Economy, SelectExtras, 3, MeetAndGreet,Baggage,Seat,FastTrack, 33 C, 37 B, 1, UseDifferentCard, 340000000001098, Test Test, 1234)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -250,20 +189,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'flightBooking')
 data.setCell(0, 2, 'Flight_Booking.FlightBooking')
-data.setCell(0, 3, 208200);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'flightBooking')
-data.setCell(1, 2, 'Flight_Booking.FlightBooking')
-data.setCell(1, 3, 193690);
+data.setCell(0, 3, 179951);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -291,18 +226,12 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Flight_Booking.FlightBooking</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">flightBooking(Test on Flight 1, Verify One way(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.net/,...)</span>
+                <span class="method-name">flightBooking(Test on Flight 1, Verify one way(Dependent) flight booking flow, SaudiaSBT, //dev.saudia.quadlabs.ne...)</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">flightBooking(Test on Flight 1, Verify Round Trip(Individual) flight booking flow, SaudiaSBT, //saudia.quadlabs.ne...)</span>
-                <span class="method-start">208657 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">After_Test</span>
-                <span class="method-start">402697 ms</span>
+                <span class="method-start">180288 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -21,7 +21,7 @@ public class TripType_Page {
 
 	public static void flightTriptype(String TripType, String OriginCityCode, String OriginLocation,
 			String DestinationCityCode, String DestinationLocation, String DepartureDate, String ReturnDate,
-			String BookAs, String PromoCode
+			String BookAs, String TCategory, String AQty, String CQty, String IQty, String ISQty, String PromoCode
 //			String adult, String child, String infant, String MoreOptions, String Currency, String Class,
 //			String PANumber, String PreferredAirlineSelect, String ShowDirectFlight, String MyDatesAreFlexible
 	) throws Exception {
@@ -55,6 +55,7 @@ public class TripType_Page {
 			QaBrowser.driver.findElement(By.xpath("//input[@id='mat-input-4']")).click();
 			Thread.sleep(3000);
 			selectDateInCalendarOneWay(expDate, month, year);
+
 			WebElement CalContinue = QaBrowser.driver.findElement(By.xpath(
 					"//button[@class='button--primary-small mat-button btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base']"));
 			JavascriptExecutor js2 = (JavascriptExecutor) QaBrowser.driver;
@@ -99,7 +100,22 @@ public class TripType_Page {
 				QaRobot.ClickOnElement("MultiPassenger");
 				break;
 			}
-			QaRobot.ClickOnElement("BookAsConfirm");
+			switch (TCategory) {
+			case "BusinessT":
+				QaRobot.ClickOnElement("BusinessT");
+				break;
+			case "FamilyT":
+				QaRobot.ClickOnElement("FamilyT");
+				break;
+			case "PersonalT":
+				QaRobot.ClickOnElement("PersonalT");
+				break;
+			}
+			WebElement BookAsConfirm = QaBrowser.driver.findElement(By.xpath(
+					"//button[@class='button--primary-small mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base']/span[2]"));
+			JavascriptExecutor js2 = (JavascriptExecutor) QaBrowser.driver;
+			js2.executeScript("arguments[0].click()", BookAsConfirm);
+//			QaRobot.ClickOnElement("BookAsConfirm");
 		}
 
 		if (BookAs.equalsIgnoreCase("Employee")) {
@@ -113,6 +129,16 @@ public class TripType_Page {
 			}
 			QaRobot.ClickOnElement("SelectEmpDetails");
 			Thread.sleep(3000);
+		}
+
+		if (TCategory.equalsIgnoreCase("BusinessT")) {
+		} else {
+			QaRobot.ClickOnElement("SPassenger");
+			QaRobot.addPassenger(AQty, CQty, IQty, ISQty);
+			WebElement SPassengerC = QaBrowser.driver.findElement(By.xpath("//span[text()='Continue']"));
+			JavascriptExecutor js2 = (JavascriptExecutor) QaBrowser.driver;
+			js2.executeScript("arguments[0].click()", SPassengerC);
+//			QaRobot.ClickOnElement("SPassengerC");
 		}
 
 		if (PromoCode.equalsIgnoreCase("Yes")) {
@@ -312,29 +338,29 @@ public class TripType_Page {
 		System.out.println(date2);
 
 		String currentMonthNumber1 = "00";
-		if (Month.equalsIgnoreCase("January")) {
+		if (Month1.equalsIgnoreCase("January")) {
 			currentMonthNumber1 = "01";
-		} else if (Month.equalsIgnoreCase("February")) {
+		} else if (Month1.equalsIgnoreCase("February")) {
 			currentMonthNumber1 = "02";
-		} else if (Month.equalsIgnoreCase("March")) {
+		} else if (Month1.equalsIgnoreCase("March")) {
 			currentMonthNumber1 = "03";
-		} else if (Month.equalsIgnoreCase("April")) {
+		} else if (Month1.equalsIgnoreCase("April")) {
 			currentMonthNumber1 = "04";
-		} else if (Month.equalsIgnoreCase("May")) {
+		} else if (Month1.equalsIgnoreCase("May")) {
 			currentMonthNumber1 = "05";
-		} else if (Month.equalsIgnoreCase("June")) {
+		} else if (Month1.equalsIgnoreCase("June")) {
 			currentMonthNumber1 = "06";
-		} else if (Month.equalsIgnoreCase("July")) {
+		} else if (Month1.equalsIgnoreCase("July")) {
 			currentMonthNumber1 = "07";
-		} else if (Month.equalsIgnoreCase("August")) {
+		} else if (Month1.equalsIgnoreCase("August")) {
 			currentMonthNumber1 = "08";
-		} else if (Month.equalsIgnoreCase("September")) {
+		} else if (Month1.equalsIgnoreCase("September")) {
 			currentMonthNumber1 = "09";
-		} else if (Month.equalsIgnoreCase("October")) {
+		} else if (Month1.equalsIgnoreCase("October")) {
 			currentMonthNumber1 = "10";
-		} else if (Month.equalsIgnoreCase("November")) {
+		} else if (Month1.equalsIgnoreCase("November")) {
 			currentMonthNumber1 = "11";
-		} else if (Month.equalsIgnoreCase("December")) {
+		} else if (Month1.equalsIgnoreCase("December")) {
 			currentMonthNumber1 = "12";
 		}
 
