@@ -3,6 +3,8 @@ package Flight_Booking;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
@@ -36,59 +38,100 @@ public class Extra_Page {
 					QaRobot.ClickOnElement("SelectSeat");
 					Thread.sleep(5000);
 					QaExtentReport.extentScreenshot("Seat Page");
-					String SelectSeat[] = SeatD.split(" ");
-					String Row = SelectSeat[0];
-					String ASeat = SelectSeat[1];
-					int a1 = Integer.parseInt(Row);
-					int count = 0;
-					for (int j = 30; j <= 57; j++) {
-						count++;
-						if (j == a1) {
-							WebElement Seat1 = QaBrowser.driver
-									.findElement(By.xpath("(//p[text()='" + ASeat + "'])[" + count + "]"));
-							JavascriptExecutor js2 = (JavascriptExecutor) QaBrowser.driver;
-							js2.executeScript("arguments[0].click()", Seat1);
-							Thread.sleep(5000);
-							break;
+//					SoftAssert softAssert = new SoftAssert();
+//					try {
+					int pAS = Integer.parseInt(AQty) + Integer.parseInt(CQty) + Integer.parseInt(IQty);
+					int pI = Integer.parseInt(ISQty);
+//						int pAS = Integer.parseInt(AQty) + Integer.parseInt(CQty) + Integer.parseInt(IQty);
+					for (int q = 1; q <= pAS; q++) {
+						if (q > 1 && pI >= 1) {
+							QaBrowser.driver
+									.findElement(By.xpath("//div[@class='passengerListDiv']//li[" + (q + 1) + "]"))
+									.click();
 						}
-					}
-					QaExtentReport.extentScreenshot("Selected Seat");
-					WebElement SeatC = QaBrowser.driver.findElement(By.xpath("//span[text()='Confirm']"));
-					JavascriptExecutor js3 = (JavascriptExecutor) QaBrowser.driver;
-					js3.executeScript("arguments[0].click()", SeatC);
-//					QaRobot.ClickOnElement("SeatC");
-					Thread.sleep(5000);
-					QaExtentReport.extentScreenshot("Seat Page");
-					Thread.sleep(2000);
-					if (TripType.equalsIgnoreCase("RoundTrip")) {
-						WebElement NextFlight = QaBrowser.driver.findElement(By.xpath("//span[text()='Next Flight']"));
-						JavascriptExecutor js4 = (JavascriptExecutor) QaBrowser.driver;
-						js4.executeScript("arguments[0].click()", NextFlight);
-//						QaRobot.ClickOnElement("NextFlight");
-						Thread.sleep(2000);
-						String SelectSeatR[] = SeatR.split(" ");
-						String RowR = SelectSeatR[0];
-						String ASeatR = SelectSeatR[1];
-						int a1R = Integer.parseInt(RowR);
-						int countR = 0;
-						for (int j = 30; j <= 61; j++) {
-							countR++;
-							if (j == a1R) {
+						String SelectSeat1[] = SeatD.split(",");
+						String SelectSeat2 = SelectSeat1[q - 1];
+						String SelectSeat[] = SelectSeat2.split(" ");
+						String Row = SelectSeat[0];
+						String ASeat = SelectSeat[1];
+						int a1 = Integer.parseInt(Row);
+						int count = 0;
+						for (int j = 30; j <= 57; j++) {
+							count++;
+//							try {
+							if (j == a1) {
+//								try {
 								WebElement Seat1 = QaBrowser.driver
-										.findElement(By.xpath("(//p[text()='" + ASeatR + "'])[" + countR + "]"));
+										.findElement(By.xpath("(//p[text()='" + ASeat + "'])[" + count + "]"));
+//									} catch (Exception e) {
+//										softAssert.assertTrue(false, "Seat is not showing");
+//									}
 								JavascriptExecutor js2 = (JavascriptExecutor) QaBrowser.driver;
 								js2.executeScript("arguments[0].click()", Seat1);
 								Thread.sleep(5000);
 								break;
+//								} catch (Exception e) {
+//									softAssert.assertTrue(false, "Seat is not showing");
+//								}
 							}
+//							} catch (Exception e) {
+//								softAssert.assertTrue(false, "Seat is not showing");
+//							}
 						}
 						QaExtentReport.extentScreenshot("Selected Seat");
-						WebElement SeatC1 = QaBrowser.driver.findElement(By.xpath("//span[text()='Confirm']"));
-						JavascriptExecutor js5 = (JavascriptExecutor) QaBrowser.driver;
-						js5.executeScript("arguments[0].click()", SeatC1);
-//						QaRobot.ClickOnElement("SeatC");
+						WebElement SeatC = QaBrowser.driver.findElement(By.xpath("//span[text()='Confirm']"));
+						JavascriptExecutor js3 = (JavascriptExecutor) QaBrowser.driver;
+						js3.executeScript("arguments[0].click()", SeatC);
+//					QaRobot.ClickOnElement("SeatC");
 						Thread.sleep(5000);
 						QaExtentReport.extentScreenshot("Seat Page");
+						Thread.sleep(2000);
+					}
+//					} catch (Exception e) {
+//						softAssert.assertTrue(false, "Seat is not showing");
+//					}
+					if (TripType.equalsIgnoreCase("RoundTrip")) {
+						WebElement NextFlight = QaBrowser.driver.findElement(By.xpath("//span[text()='Next Flight']"));
+						JavascriptExecutor js4 = (JavascriptExecutor) QaBrowser.driver;
+						js4.executeScript("arguments[0].click()", NextFlight);
+//					QaRobot.ClickOnElement("NextFlight");
+						Thread.sleep(2000);
+						int pAS1 = Integer.parseInt(AQty) + Integer.parseInt(CQty) + Integer.parseInt(IQty);
+						int pI1 = Integer.parseInt(ISQty);
+//						int pAS = Integer.parseInt(AQty) + Integer.parseInt(CQty) + Integer.parseInt(IQty);
+						for (int q = 1; q <= pAS1; q++) {
+							if (q > 1 && pI1 >= 1) {
+								QaBrowser.driver
+										.findElement(By.xpath("//div[@class='passengerListDiv']//li[" + (q + 1) + "]"))
+										.click();
+							}
+//						for (int q = 1; q <= pAS1; q++) {
+							String SelectSeat1[] = SeatR.split(",");
+							String SelectSeat2 = SelectSeat1[q - 1];
+							String SelectSeatR[] = SelectSeat2.split(" ");
+							String RowR = SelectSeatR[0];
+							String ASeatR = SelectSeatR[1];
+							int a1R = Integer.parseInt(RowR);
+							int countR = 0;
+							for (int j = 30; j <= 61; j++) {
+								countR++;
+								if (j == a1R) {
+									WebElement Seat1 = QaBrowser.driver
+											.findElement(By.xpath("(//p[text()='" + ASeatR + "'])[" + countR + "]"));
+									JavascriptExecutor js2 = (JavascriptExecutor) QaBrowser.driver;
+									js2.executeScript("arguments[0].click()", Seat1);
+									Thread.sleep(5000);
+									break;
+								}
+							}
+							QaExtentReport.extentScreenshot("Selected Seat");
+							WebElement SeatC1 = QaBrowser.driver.findElement(By.xpath("//span[text()='Confirm']"));
+							JavascriptExecutor js5 = (JavascriptExecutor) QaBrowser.driver;
+							js5.executeScript("arguments[0].click()", SeatC1);
+//					QaRobot.ClickOnElement("SeatC");
+							Thread.sleep(5000);
+							QaExtentReport.extentScreenshot("Seat Page");
+						}
 					}
 					QaRobot.ClickOnElement("SeatConfirm");
 					Thread.sleep(8000);
@@ -109,23 +152,29 @@ public class Extra_Page {
 					int pAS = Integer.parseInt(AQty) + Integer.parseInt(CQty) + Integer.parseInt(IQty)
 							+ Integer.parseInt(ISQty);
 					for (int q = 1; q <= pAS; q++) {
-						QaBrowser.driver
-								.findElement(By.xpath("(//div[@class='ebag-desc ng-star-inserted' and contains(.,' "
-										+ Bags + " Bag ')]//mat-icon)[" + q + "]"))
+						QaBrowser.driver.findElement(
+								By.xpath("(//div[contains(@class,'ebag-desc ng-star-inserted') and contains(.,' " + Bags
+										+ " Bag ')]//mat-icon)[" + q + "]"))
 								.click();
+
+//						QaBrowser.driver
+//								.findElement(By.xpath("(//div[@class='ebag-desc ng-star-inserted' and contains(.,' "
+//										+ Bags + " Bag ')]//mat-icon)[" + q + "]"))
+//								.click();
 						Thread.sleep(3000);
 						QaExtentReport.extentScreenshot("Baggage Page");
 						Thread.sleep(2000);
-						if (TripType.equalsIgnoreCase("RoundTrip")) {
-							WebElement NextBaggage = QaBrowser.driver
-									.findElement(By.xpath("//span[text()='Next Flight']"));
-							JavascriptExecutor js4 = (JavascriptExecutor) QaBrowser.driver;
-							js4.executeScript("arguments[0].click()", NextBaggage);
+					}
+					if (TripType.equalsIgnoreCase("RoundTrip")) {
+						WebElement NextBaggage = QaBrowser.driver.findElement(By.xpath("//span[text()='Next Flight']"));
+						JavascriptExecutor js4 = (JavascriptExecutor) QaBrowser.driver;
+						js4.executeScript("arguments[0].click()", NextBaggage);
 //						QaRobot.ClickOnElement("NextFlight");
-							Thread.sleep(2000);
+						Thread.sleep(2000);
+						for (int q = 1; q <= pAS; q++) {
 							QaBrowser.driver
 									.findElement(By.xpath("(//div[@class='ebag-desc ng-star-inserted' and contains(.,' "
-											+ Bags + " Bag ')]//mat-icon)[" + q + "]"))
+											+ Bags + " Bag ')]//mat-icon)[1]"))
 									.click();
 							Thread.sleep(3000);
 							QaExtentReport.extentScreenshot("Baggage Page");

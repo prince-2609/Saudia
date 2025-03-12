@@ -34,7 +34,7 @@ public class Passenger_Page {
 //			QaRobot.ClickOnElement("ContinueToPassenger2");
 			break;
 		}
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		QaExtentReport.extentScreenshot("Passenger page");
 		Thread.sleep(5000);
 
@@ -63,7 +63,7 @@ public class Passenger_Page {
 			JavascriptExecutor js5 = (JavascriptExecutor) QaBrowser.driver;
 			js5.executeScript("arguments[0].click()", ReviewAddPassenegers);
 //			QaRobot.ClickOnElement("ReviewAddPassenegers");
-			Thread.sleep(3000);
+			Thread.sleep(8000);
 			QaExtentReport.extentScreenshot("Added Passengers");
 			Thread.sleep(3000);
 		}

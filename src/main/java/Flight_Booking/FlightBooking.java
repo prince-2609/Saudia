@@ -49,7 +49,7 @@ public class FlightBooking {
 		WebElement Capcha = QaBrowser.driver.findElement(By.xpath("//iframe[@title='reCAPTCHA']"));
 		QaBrowser.driver.switchTo().frame(Capcha);
 		QaRobot.ClickOnElement("Capcha1");
-		Thread.sleep(50000);
+		Thread.sleep(80000);
 		QaBrowser.driver.switchTo().defaultContent();
 		QaExtentReport.extentScreenshot("Login Page");
 		Thread.sleep(2000);
@@ -66,8 +66,8 @@ public class FlightBooking {
 				ChangeTravellers, adultM, childM, infantM, ChangeClass, ClassM);
 		Passenger_Page.flightPassengerPage(TripType, TCategory, AQty, CQty, IQty, ISQty, ChooseOption);
 		Thread.sleep(5000);
-//		Extra_Page.flightExtrasPage(TripType, AQty, CQty, IQty, ISQty, NoExtras, SelectExtras, SeatD, SeatR, Bags);
-//		Payment_Page.flightPaymentPage(PaymentMethod, CardNumber, NameOfCardHolder, CVV);
+		Extra_Page.flightExtrasPage(TripType, AQty, CQty, IQty, ISQty, NoExtras, SelectExtras, SeatD, SeatR, Bags);
+		Payment_Page.flightPaymentPage(PaymentMethod, CardNumber, NameOfCardHolder, CVV);
 
 	}
 
